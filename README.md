@@ -23,3 +23,6 @@ as my app is a frontend app and it only requires http to access the solution of 
 the other sulotion there was were nodeport which i expose the port of a service and can access only with nodeip:nodeport and is good for a testing but not production
 and loadbalancer that expose the service to a remote loadbalancer which balances between the nodes that was exposed this solution can be used in applications that require tcp requests 
 
+
+in flask 1.1.2 there seems to be a problem with showing the banner message in the flask app as you run the app but if you run the container from the cmd or terminal its works fine and shows the secret and the environment variable
+
