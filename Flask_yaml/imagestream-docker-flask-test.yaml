@@ -1,0 +1,45 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  creationTimestamp: "2021-05-03T08:40:11Z"
+  generation: 1
+  name: docker-flask-test
+  namespace: flask
+  resourceVersion: "86529228"
+  selfLink: /apis/image.openshift.io/v1/namespaces/flask/imagestreams/docker-flask-test
+  uid: ed71a2a6-9ac4-4a70-b71f-487ac7a22f39
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test
+  publicDockerImageRepository: ref-con-reg.redhat.local:5000/flask/docker-flask-test
+  tags:
+  - items:
+    - created: "2021-05-03T11:49:09Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test@sha256:dac8b77ad1639f31351bff74325731842c66c37dac50cd2585abda46fdeb8a05
+      generation: 1
+      image: sha256:dac8b77ad1639f31351bff74325731842c66c37dac50cd2585abda46fdeb8a05
+    - created: "2021-05-03T08:40:13Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test@sha256:bc793e416db6f15f1c218f0aed3d2aae22e7d6c0b20dfe812ab7e6591e1985ed
+      generation: 1
+      image: sha256:bc793e416db6f15f1c218f0aed3d2aae22e7d6c0b20dfe812ab7e6591e1985ed
+    tag: latest
+  - items:
+    - created: "2021-05-03T11:57:50Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test@sha256:dac8b77ad1639f31351bff74325731842c66c37dac50cd2585abda46fdeb8a05
+      generation: 1
+      image: sha256:dac8b77ad1639f31351bff74325731842c66c37dac50cd2585abda46fdeb8a05
+    tag: v1
+  - items:
+    - created: "2021-05-03T12:28:57Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test@sha256:88041d1356cafd90390a2f126a859338f69c586849e6c3c75238475ebaa68af8
+      generation: 1
+      image: sha256:88041d1356cafd90390a2f126a859338f69c586849e6c3c75238475ebaa68af8
+    tag: v3
+  - items:
+    - created: "2021-05-03T12:40:08Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test@sha256:949f21b2357d696e5cea6e7235660ba69ed5555bf5be6aa6623c415f4ff09851
+      generation: 1
+      image: sha256:949f21b2357d696e5cea6e7235660ba69ed5555bf5be6aa6623c415f4ff09851
+    tag: v4

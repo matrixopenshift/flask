@@ -1,0 +1,206 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    deployment.kubernetes.io/revision: "6"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"docker-flask-test:v4","namespace":"flask"},"fieldPath":"spec.template.spec.containers[?(@.name==\"docker-flask-test\")].image","pause":"false"}]'
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2021-05-03T12:40:58Z"
+  generation: 6
+  labels:
+    app: docker-flask-test
+    app.kubernetes.io/component: docker-flask-test
+    app.kubernetes.io/instance: docker-flask-test
+    app.kubernetes.io/name: docker-flask-test
+    app.kubernetes.io/part-of: docker-flask-test-app
+    app.openshift.io/runtime: docker-flask-test
+    app.openshift.io/runtime-namespace: flask
+    app.openshift.io/runtime-version: v4
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:alpha.image.policy.openshift.io/resolve-names: {}
+          f:image.openshift.io/triggers: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime: {}
+          f:app.openshift.io/runtime-namespace: {}
+          f:app.openshift.io/runtime-version: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:openshift.io/generated-by: {}
+            f:labels:
+              .: {}
+              f:app: {}
+              f:deploymentconfig: {}
+          f:spec:
+            f:containers:
+              k:{"name":"docker-flask-test"}:
+                .: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":5000,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/Flask_Blog/secret.txt"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                    f:subPath: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"flasksecret"}:
+                .: {}
+                f:name: {}
+                f:secret:
+                  .: {}
+                  f:defaultMode: {}
+                  f:secretName: {}
+    manager: Mozilla
+    operation: Update
+    time: "2021-05-03T13:10:06Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-05-03T13:20:05Z"
+  name: docker-flask-test
+  namespace: flask
+  resourceVersion: "86549257"
+  selfLink: /apis/apps/v1/namespaces/flask/deployments/docker-flask-test
+  uid: 0d278f51-82f3-4e35-a527-9814380a6fb8
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: docker-flask-test
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+      creationTimestamp: null
+      labels:
+        app: docker-flask-test
+        deploymentconfig: docker-flask-test
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/flask/docker-flask-test@sha256:949f21b2357d696e5cea6e7235660ba69ed5555bf5be6aa6623c415f4ff09851
+        imagePullPolicy: IfNotPresent
+        name: docker-flask-test
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /Flask_Blog/secret.txt
+          name: flasksecret
+          readOnly: true
+          subPath: secret.txt
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: flasksecret
+        secret:
+          defaultMode: 420
+          secretName: flasksecret
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-05-03T13:11:39Z"
+    lastUpdateTime: "2021-05-03T13:11:39Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-05-03T12:40:59Z"
+    lastUpdateTime: "2021-05-03T13:20:05Z"
+    message: ReplicaSet "docker-flask-test-746d6696c7" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 6
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

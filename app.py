@@ -8,7 +8,7 @@ import sys
 # configure banner at startup  
 cli = sys.modules['flask.cli']
 user = os.environ['MYVAR']
-log = open('./secret.txt', "r")
+log = open('/Flask_Blog/secret.txt', "r")
 
 cli.show_server_banner = lambda *x: print(user, log.read())
 app = Flask(__name__)

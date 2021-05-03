@@ -1,0 +1,66 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2021-05-03T12:40:59Z"
+  labels:
+    app: docker-flask-test
+    app.kubernetes.io/component: docker-flask-test
+    app.kubernetes.io/instance: docker-flask-test
+    app.kubernetes.io/part-of: docker-flask-test-app
+  managedFields:
+  - apiVersion: route.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/part-of: {}
+      f:spec:
+        f:port:
+          .: {}
+          f:targetPort: {}
+        f:to:
+          f:kind: {}
+          f:name: {}
+          f:weight: {}
+        f:wildcardPolicy: {}
+    manager: Mozilla
+    operation: Update
+    time: "2021-05-03T12:40:59Z"
+  - apiVersion: route.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:ingress: {}
+    manager: openshift-router
+    operation: Update
+    time: "2021-05-03T12:41:00Z"
+  name: docker-flask-test
+  namespace: flask
+  resourceVersion: "86529693"
+  selfLink: /apis/route.openshift.io/v1/namespaces/flask/routes/docker-flask-test
+  uid: 174af3dd-8b48-469a-bbae-dab40891d307
+spec:
+  host: docker-flask-test-flask.apps.gs-ocp4.redhat.local
+  port:
+    targetPort: 5000-tcp
+  to:
+    kind: Service
+    name: docker-flask-test
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2021-05-03T12:40:59Z"
+      status: "True"
+      type: Admitted
+    host: docker-flask-test-flask.apps.gs-ocp4.redhat.local
+    routerCanonicalHostname: apps.gs-ocp4.redhat.local
+    routerName: default
+    wildcardPolicy: None
